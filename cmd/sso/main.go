@@ -5,8 +5,8 @@ import (
 	"log/slog"
 	"os"
 	"url-shortener/internal/config"
-	// "url-shortener/internal/lib/logger/sl"
-	// "url-shortener/internal/storage/sqllite"
+	"url-shortener/internal/lib/logger/sl"
+	"url-shortener/internal/storage/sqllite"
 )
 
 const (
@@ -23,13 +23,14 @@ func main() {
 	log.Info("starting server", slog.String("env", cfg.Env))
 	log.Debug("debug message are enabled")
 
-	// storage, err := sqllite.New(cfg.StoragePath)
-	// if err != nil {
-	// 	log.Error("failed to init storage", sl.Err(err))
-	// 	os.Exit(1)
-	// }
+	fmt.Println("xuy")
+	storage, err := sqllite.New(cfg.StoragePath)
+	if err != nil {
+		log.Error("failed to init storage", sl.Err(err))
+		os.Exit(1)
+	}
 
-	// _ = storage
+	_ = storage
 
 }
 
