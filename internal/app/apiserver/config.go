@@ -1,16 +1,12 @@
-package config
+package apiserver
 
 import (
-	"flag"
-	"log"
-	"os"
 	"time"
-
-	"github.com/ilyakaznacheev/cleanenv"
 )
 
 type Config struct {
-	Env         string `yaml:"env" env-default:"local"`
+	//Env         string `yaml:"env" env-default:"local"`
+	Env         string `tomal:"env"`
 	StoragePath string `yaml:"storage_path" env-required:"true"`
 	HTTPServer  `yaml:"http_server"`
 }
@@ -21,6 +17,13 @@ type HTTPServer struct {
 	IdleTimeout time.Duration `yaml:"idle_timeout" env-default:"60s"`
 }
 
+func NewConfig() *Config {
+	return &Config{
+		Env: "8080",
+	}
+}
+
+/*
 func MustLoad() *Config {
 	path := fetchConfigPath()
 	if path == " " {
@@ -51,3 +54,4 @@ func fetchConfigPath() (result string) {
 
 	return
 }
+*/
