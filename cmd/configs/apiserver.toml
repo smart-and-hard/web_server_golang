@@ -1,0 +1,2 @@
+BinAddr = "localhost:5050"
+log_level = "debug"

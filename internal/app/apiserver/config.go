@@ -6,20 +6,22 @@ import (
 
 type Config struct {
 	//Env         string `yaml:"env" env-default:"local"`
-	Env         string `tomal:"env"`
+	BinAddr     string `tomal:"BinAddr"`
+	logLevel    string `toml:"log_level"`
 	StoragePath string `yaml:"storage_path" env-required:"true"`
 	HTTPServer  `yaml:"http_server"`
 }
 
 type HTTPServer struct {
-	Address     string        `yaml:"address" env-default:"localhost:8080"`
+	Address     string        `yaml:"address" env-default:"localhost:5050"`
 	Timeout     time.Duration `yaml:"timeout" env-default:"4s"`
 	IdleTimeout time.Duration `yaml:"idle_timeout" env-default:"60s"`
 }
 
 func NewConfig() *Config {
 	return &Config{
-		Env: "8080",
+		BinAddr:  "5050",
+		logLevel: "debug",
 	}
 }
 
