@@ -8,12 +8,6 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
-// const (
-// 	envLocal = "local"
-// 	envDev   = "dev"
-// 	envProd  = "prod"
-// )
-
 var (
 	configPath string
 )
@@ -36,39 +30,4 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// cfg := config.MustLoad()
-	// fmt.Println(cfg)
-
-	// logv := setupLogger(cfg.Env)
-	// logv.Info("starting server", slog.String("env", cfg.Env))
-	// logv.Debug("debug message are enabled")
-
-	// storage, err := sqllite.New(cfg.StoragePath)
-	// if err != nil {
-	// 	log.Error("failed to init storage", sl.Err(err))
-	// 	os.Exit(1)
-	// }
-
-	// _ = storage
-
 }
-
-// func setupLogger(env string) *slog.Logger {
-// 	var log *slog.Logger
-
-// 	switch env {
-// 	case envLocal:
-// 		log = slog.New(
-// 			slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}),
-// 		)
-// 	case envDev:
-// 		log = slog.New(
-// 			slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}),
-// 		)
-// 	case envProd:
-// 		log = slog.New(
-// 			slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelInfo}),
-// 		)
-// 	}
-// 	return log
-// }
