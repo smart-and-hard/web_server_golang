@@ -7,5 +7,3 @@ type Config struct {
 func NewConfig() *Config {
 	return &Config{}
 }
-
-//database_url = "host=localhost dbname=restapi_dev sslmode=disable"
