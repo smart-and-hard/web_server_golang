@@ -1,19 +1,14 @@
 package apiserver
 
-import (
-	"url-shortener/internal/store"
-)
-
 type Config struct {
-	BinAddr  string `toml:"BinAddr"`
-	logLevel string `toml:"log_level"`
-	Store    *store.Config
+	BindAddr    string `toml:"BindAddr"`
+	logLevel    string `toml:"log_level"`
+	DatabaseURL string `toml:"database_url"`
 }
 
 func NewConfig() *Config {
 	return &Config{
-		BinAddr:  "5050",
+		BindAddr: "5050",
 		logLevel: "debug",
-		Store:    store.NewConfig(),
 	}
 }
