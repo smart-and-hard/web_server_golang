@@ -13,6 +13,7 @@ func TestServert_HandleUsersCreate(t *testing.T) {
 	rec := httptest.NewRecorder()
 	req := httptest.NewRequest("POST", "/users", nil)
 	s := newServer(teststore.New())
-	s.ServerHTTP(rec, req)
+	s.ServeHTTP(rec, req)
 	assert.Equal(t, rec.Code, http.StatusOK)
+
 }
